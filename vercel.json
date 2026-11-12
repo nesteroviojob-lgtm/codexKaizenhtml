@@ -3,6 +3,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
+    "server.mjs": {
+      "maxDuration": 30,
+      "includeFiles": ["dist/**", "widget/**"]
+    },
     "api/telegram.mjs": { "maxDuration": 30, "includeFiles": "widget/**" }
   },
   "headers": [

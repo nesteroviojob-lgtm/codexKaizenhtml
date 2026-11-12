@@ -16,9 +16,9 @@ const files = new Map([
   ["/preview.js", ["preview.js", "text/javascript"]],
   ["/logo.svg", ["logo.svg", "image/svg+xml"]],
 ]);
-export function createApp({ env = process.env, call } = {}) {
+export function createRequestHandler({ env = process.env, call } = {}) {
   const webhook = createWebhookHandler({ env, call });
-  return createServer(async (req, res) => {
+  return async (req, res) => {
     res.setHeader("X-Content-Type-Options", "nosniff");
     res.setHeader("Referrer-Policy", "no-referrer");
     res.setHeader(
@@ -50,8 +50,17 @@ export function createApp({ env = process.env, call } = {}) {
       return;
     }
     json(res, 404, { error: "Not found" });
-  });
+  };
 }
+
+export function createApp(options = {}) {
+  return createServer(createRequestHandler(options));
+}
+
+// Vercel detects server.mjs as a Node entrypoint and imports this handler.
+// Importing the module must not start a listening process.
+export default createRequestHandler();
+
 if (
   process.argv[1] &&
   resolve(process.argv[1]) === fileURLToPath(import.meta.url)
