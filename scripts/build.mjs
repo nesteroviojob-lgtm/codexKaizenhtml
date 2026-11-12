@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile, cp, rm } from "node:fs/promises";
 import { deflateSync } from "node:zlib";
 import { widgetSource } from "../lib/widgets.mjs";
 import { configureBot } from "../lib/setup.mjs";
+import { formatSetupError } from "../lib/setup-errors.mjs";
 
 const root = new URL("../", import.meta.url);
 const mock = await readFile(
@@ -38,10 +39,8 @@ if (
   try {
     await configureBot();
     console.log("New HTML bot configured.");
-  } catch {
-    console.error(
-      "HTML bot setup failed. Check the NEW bot's HTML_* settings and webhook. No credentials logged.",
-    );
+  } catch (error) {
+    console.error("HTML bot setup failed.\n" + formatSetupError(error));
     process.exitCode = 1;
   }
 }

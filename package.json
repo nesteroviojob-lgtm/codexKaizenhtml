@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Самостоятельный бот KAIZEN с HTML-виджетами внутри сообщений Telegram",
   "engines": {
-    "node": ">=24"
+    "node": "24.x"
   },
   "scripts": {
     "start": "node --use-env-proxy --use-system-ca --env-file-if-exists=.env server.mjs",
