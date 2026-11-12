@@ -5,7 +5,7 @@
   "functions": {
     "server.mjs": {
       "maxDuration": 30,
-      "includeFiles": ["dist/**", "widget/**"]
+      "includeFiles": "{dist,widget}/**"
     },
     "api/telegram.mjs": { "maxDuration": 30, "includeFiles": "widget/**" }
   },
