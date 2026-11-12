@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0040dc" />
+    <title>KAIZEN — HTML-бот</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/preview.css" />
+    <script src="/preview.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <img src="/logo.svg" alt="Kaizen" width="170" height="38" /><span
+        >TELEGRAM HTML BOT <span class="version">01</span></span
+      >
+    </header>
+    <main class="layout">
+      <aside>
+        <span class="kicker">ВАША ИДЕЯ. НАША КОМАНДА.</span>
+        <h1>От первого<br />«привет» —<br /><span>к проекту.</span></h1>
+        <p class="intro">
+          Услуги, реальные кейсы и короткий бриф.<br />Всё начинается с одного
+          сообщения.
+        </p>
+        <div class="feature">
+          <span>01</span>
+          <div>
+            <strong>Знакомство</strong>
+            <p>AI-решения, веб-приложения и Lean-подход.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span>02</span>
+          <div>
+            <strong>Доверие</strong>
+            <p>Geltek, MyWatch и Яндекс Еда — проекты команды.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span>03</span>
+          <div>
+            <strong>Разговор о задаче</strong>
+            <p>Несколько вопросов кнопками, затем описание в чат.</p>
+          </div>
+        </div>
+        <p class="demo-note">
+          Интерактивный предпросмотр. Нажимайте кнопки справа.<br />Заявки из
+          этой демонстрации никуда не отправляются.
+        </p>
+      </aside>
+      <section class="chat-shell" aria-label="Предпросмотр чата">
+        <header class="chat-header">
+          <span class="avatar">k</span>
+          <div>
+            <strong>KAIZEN · разработка</strong
+            ><small>бот · интерактивное сообщение</small>
+          </div>
+          <button id="theme" aria-label="Сменить тему">◐</button>
+        </header>
+        <div class="chat" id="chat">
+          <div class="date">Предпросмотр · без отправки</div>
+          <div class="sent">/start <small>✓✓</small></div>
+          <div class="bubble">
+            <iframe title="Знакомство с KAIZEN" src="/home.html"></iframe>
+            <p class="caption">KAIZEN — AI-решения, веб-приложения и MVP.</p>
+            <time>12:00</time>
+          </div>
+        </div>
+        <form id="composer" hidden>
+          <label for="description"
+            >Ответ на сообщение с брифом · демонстрация</label
+          >
+          <div>
+            <textarea
+              id="description"
+              minlength="10"
+              maxlength="1600"
+              placeholder="Опишите вашу задачу…"
+              required
+            ></textarea
+            ><button type="submit" aria-label="Проверить описание">↑</button>
+          </div>
+        </form>
+        <footer class="chat-footer">
+          <span>ДЕМО</span><button id="restart">Начать заново ↻</button>
+        </footer>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <span>KAIZEN · IDEA → BUILD → GROW</span
+      ><a
+        href="https://kaizenteam.xyz/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Материалы команды →</a
+      >
+    </footer>
+  </body>
+</html>
